@@ -14,7 +14,7 @@
         <div class="leftside">
             <h1>Anokha</h1>
             <h2>Have An Account?</h2>
-            <a href="signin.html" class="create-account">S I G N  IN</a>
+            <a href="signin.html" class="create-account">S I G N &nbsp;  IN</a>
         </div>
 
         <div class="rightside">
@@ -75,4 +75,17 @@
 
     
 </body>
+
+<script>
+    document.querySelector(".SignIn").addEventListener("click", function(){
+        var email = document.querySelector("input[type='email']").value;
+        if(email){
+            window.location.href = "index.html";
+            alert("Your Account is created Successfully");
+        } else {
+            alert("Please enter your Deatils To Procced");
+        }
+    });
+</script>
+
 </html>

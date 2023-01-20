@@ -50,7 +50,7 @@ body{
     margin-right: 0; 
   }
   
-  .rightside-nav img {
+  .rightside-nav  img {
     margin-right: 0;
   }
   
@@ -535,3 +535,100 @@ input[type="checkbox"] {
   }
 
   
+
+  /* <!-- -----------Product Page Css---------- --> */
+
+  /* <!-- -----------product image Css---------- --> */
+
+
+  .our-product img{
+    margin-top: 40px;
+    width: 100%;
+    position: relative;
+}
+.our-product h1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+  /* <!-- -----------ProductDetail Page Css---------- --> */
+
+  /* <!-- -----------product image Css---------- --> */
+
+  .product-cont{
+    display: flex;
+    width: 100%;
+  }
+  .left-product{
+    width: 50%;
+    margin-left: 10px;
+  }
+  .left-product .limg{
+    margin-top: 20px;
+    margin-left: 130px;
+  }
+  .left-product .down-side{
+    display: flex;
+    margin-left: 140px;
+    gap: 10px;
+  }
+  .left-product .down-side img{
+    width: 130px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid transparent;
+    }
+    .left-product .down-side img:hover{
+    border: 1px solid cornflowerblue; 
+    }
+
+  .right-product{
+    width: 50%;
+  }
+  .right-product p:nth-child(1){
+    font-size: 14px;
+    color: rgb(139, 139, 139);
+    margin-top: 90px;
+  }
+  .right-product h2{
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  .right-product p{
+    margin-top: 20px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .right-product button{
+    margin-top: 50px;
+    margin-left: 20%;
+    width: 39%;
+    height: 55px;
+    font-size: 24px;
+    background: #EF5333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .right-product h3{
+    margin-top: 40px;
+    font-size: 26px;
+    color: #464646;
+  }
+  .right-product li{
+    margin-top: 10px;
+  }
+

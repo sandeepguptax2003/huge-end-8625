@@ -15,7 +15,7 @@
         <div class="leftside">
             <h1>Anokha</h1>
             <h2>New Customer?</h2>
-            <a href="signup.html" class="create-account">C R E A T E  AN  A C C O U N T</a>
+            <a href="signup.html" class="create-account">C R E A T E &nbsp; AN &nbsp; A C C O U N T</a>
         </div>
 
         <div class="rightside">
@@ -55,4 +55,34 @@
 
     
 </body>
+
+<script>
+         document.querySelector(".SignIn").addEventListener("click", function(){
+        var email = document.querySelector("input[type='email']").value;
+        var password = document.querySelector("input[type='password']").value;
+        var rememberMe = document.querySelector("input[name='remember-me']").checked;
+        
+        if(email && password){
+            if(rememberMe){
+                localStorage.setItem("email", email);
+                localStorage.setItem("password", password);
+                localStorage.setItem("rememberMe", rememberMe);
+            } else {
+                localStorage.removeItem("email");
+                localStorage.removeItem("password");
+                localStorage.removeItem("rememberMe");
+            }
+            window.location.href = "index.html";
+            alert("You are successfully Signed In");
+        } else {
+            alert("Please enter your email address and password");
+        }
+    });
+    if(localStorage.getItem("rememberMe") === "true"){
+        document.querySelector("input[type='email']").value = localStorage.getItem("email");
+        document.querySelector("input[type='password']").value = localStorage.getItem("password");
+        document.querySelector("input[name='remember-me']").checked = true;
+    }
+</script>
+
 </html>
