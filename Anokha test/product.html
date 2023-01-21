@@ -31,7 +31,7 @@
           <a href="">About</a>
           <a href="">Contact</a>
           <a href="signin.html">My Account</a>
-          <a href=""><img class="cart" src="icons/icons8-shopping-cart-64.png"></a>
+          <a href="cart.html"><img class="cart" src="icons/icons8-shopping-cart-64.png"></a>
         </div>
       </div>
 
@@ -44,26 +44,12 @@
  </div>
 
 
- <!-- -----------Camera Section---------- -->
+ <!-- -----------Products section---------- -->
+
+ <div id="productContainer"></div>
+ <div id="pagination"></div>
 
 
-
-
-
-
-
-
-<!-- -----------Camera Lenses Section---------- -->
-
-
-
-
-
-
-
-
-
-<!-- -----------Camera Accesories Section---------- -->
 
 
 
@@ -137,4 +123,96 @@
 
 
 </body>
+
+
+<script>
+
+fetch("https://63ca28824f53a004201dc3df.mockapi.io/products")
+    .then(response => response.json())
+    .then(data => {
+      // Get the product container element
+      const productContainer = document.getElementById("productContainer");
+      // Create a grid container for the products
+      const gridContainer = document.createElement("div");
+      gridContainer.classList.add("grid-container");
+      productContainer.appendChild(gridContainer);
+      
+      // Set the number of products per page
+      const productsPerPage = 4;
+      
+      // Loop through the products and create card elements for each one
+      for (let i = 0; i < data.length; i++) {
+        // Check if we've reached the end of the products for the current page
+        if (i % productsPerPage === 0) {
+          // Create a new page container
+          const pageContainer = document.createElement("div");
+          pageContainer.classList.add("page-container");
+          productContainer.appendChild(pageContainer);
+        }
+        const product = data[i];
+        // Create the product card element
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+        // Create the product image element
+        const productImage = document.createElement("img");
+        productImage.src = product.image;
+        productImage.classList.add("product-image");
+        productCard.appendChild(productImage);
+        // Create the product title element
+        const productTitle = document.createElement("h3");
+        productTitle.classList.add("product-title");
+        productTitle.textContent = product.name;
+        productCard.appendChild(productTitle);
+        // Create the product price element
+        const productPrice = document.createElement("p");
+        productPrice.classList.add("product-price");
+        productPrice.textContent = "$" + product.price;
+        productCard.appendChild(productPrice);
+        // Create the product description element
+        const productDescription = document.createElement("p");
+        productDescription.classList.add("product-description");
+        productDescription.textContent = product.description;
+        productCard.appendChild(productDescription);
+        // Create the "Add to Cart" button
+        const addToCartButton = document.createElement("button");
+        addToCartButton.classList.add("add-to-cart-button");
+        addToCartButton.textContent = "Add to Cart";
+        productCard.appendChild(addToCartButton);
+        // Add the product card to the grid container
+        gridContainer.appendChild(productCard);
+      }
+
+      // Create pagination buttons
+
+      const paginationContainer = document.getElementById("pagination");
+for (let i = 1; i <= Math.ceil(data.length / productsPerPage); i++) {
+const paginationButton = document.createElement("button");
+paginationButton.textContent = i;
+paginationButton.addEventListener("click", () => {
+// Show only the products for the current page
+const startIndex = (i - 1) * productsPerPage;
+const endIndex = startIndex + productsPerPage;
+const currentPage = i - 1;
+// Get the current page container
+const pageContainers = document.getElementsByClassName("page-container");
+for (let j = 0; j < pageContainers.length; j++) {
+// Hide all page containers except the current one
+if (j === currentPage) {
+pageContainers[j].style.display = "block";
+} else {
+pageContainers[j].style.display = "none";
+}
+}
+if(i == 3){
+window.location.href = "index.html";
+}
+});
+paginationContainer.appendChild(paginationButton);
+}
+})
+.catch(error => console.error(error));
+      
+  
+</script>
+
 </html>
