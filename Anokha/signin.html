@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyAccount/SignIn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        
+    <div class="logincontainer">
+
+        <div class="leftside">
+            <h1>Anokha</h1>
+            <h2>New Customer?</h2>
+            <a href="signup.html" class="create-account">C R E A T E &nbsp; AN &nbsp; A C C O U N T</a>
+        </div>
+
+        <div class="rightside">
+            <div class="small-card">
+                <h2>Sign In</h2>
+                <p>Your Email:</p>
+                <input type="email" placeholder="Email Address">
+
+                <p>Password:</p>
+                <input type="password" placeholder="Password">
+                <label class="custom-label">
+                    <input type="checkbox" name="remember-me" value="remember-me"> 
+                    <span>Remember Me</span>
+                </label>
+                <button class="SignIn">SIGN IN</button>
+                <br>
+                <a href="">Forgot Password?</a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="down-cont">
+        <p>If you created an Adorama account with your  Facebook or  Twitter login, please click HERE for Sign In information.</p>
+    </div>
+
+    <div class="down2-cont">
+        <a href="">PRIVACY POLICY</a>
+        <a href="">TERMS OF USE</a>
+        <a href="">CONTACT US</a>
+    </div>
+
+
+
+
+
+    
+</body>
+
+<script>
+         document.querySelector(".SignIn").addEventListener("click", function(){
+        var email = document.querySelector("input[type='email']").value;
+        var password = document.querySelector("input[type='password']").value;
+        var rememberMe = document.querySelector("input[name='remember-me']").checked;
+        
+        if(email && password){
+            if(rememberMe){
+                localStorage.setItem("email", email);
+                localStorage.setItem("password", password);
+                localStorage.setItem("rememberMe", rememberMe);
+            } else {
+                localStorage.removeItem("email");
+                localStorage.removeItem("password");
+                localStorage.removeItem("rememberMe");
+            }
+            window.location.href = "index.html";
+            alert("You are successfully Signed In");
+        } else {
+            alert("Please enter your email address and password");
+        }
+    });
+    if(localStorage.getItem("rememberMe") === "true"){
+        document.querySelector("input[type='email']").value = localStorage.getItem("email");
+        document.querySelector("input[type='password']").value = localStorage.getItem("password");
+        document.querySelector("input[name='remember-me']").checked = true;
+    }
+</script>
+
+</html>

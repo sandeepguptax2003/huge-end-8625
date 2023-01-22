@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+ 
+}
+.navbar h1{
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+.navbar {
+  background-color: #004285;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+  position: relative;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.navbar ul li {
+  padding: 10px 10px;
+  position: relative;
+}
+
+.navbar ul li a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: gold;
+}
+
+.fas {
+  float: right;
+  margin-left: 10px;
+  padding-top: 3px;
+}
+
+.dropdown-menu {
+  display: none;
+}
+.navbar ul li img {
+display: block;
+width: 35px;
+}
+.navbar ul li img:hover {
+transform: scale(1.2);
+transition: all 0.3s;
+cursor: pointer;
+}
+
+.navbar ul li:hover .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: rgb(19, 177, 201);
+}
+
+.navbar ul li:hover .dropdown-menu ul {
+  display: block;
+  margin: 10px;
+}
+
+.navbar ul li:hover .dropdown-menu ul li {
+  width: 150px;
+  padding: 10px;
+}
+
+</style>
+<body>
+<div class="navbar">
+    <h1>Anokha</h1>
+    <ul>
+        <li><a href="#">Products <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="">Camera</a></li>
+                    <li><a href="">Lenses</a></li>
+                    <li><a href="">Tripods & Support</a></li>
+                </ul>
+            </div>
+        <li><a href="">Brands</a></li>
+        <li><a href="">About Us</a</li>
+            <li><a href="">Contact US</a></li>
+            <li><a href="">My Account</a></li>
+    <li><img src="icons/icons8-shopping-cart-64.png" alt=""></li>
+</ul>
